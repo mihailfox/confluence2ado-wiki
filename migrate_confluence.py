@@ -75,4 +75,4 @@ child_pages = export_import_pages(root_page["id"])
 for child_page in child_pages:
     file_name = export_page(child_page)
     file_name = convert_to_markdown(file_name)
-    import_page(file_name)
+    #import_page(file_name)
