@@ -1,5 +1,5 @@
 from atlassian import Confluence
-from atlassian import AzureDevOps
+#from atlassian import AzureDevOps
 import json
 import os
 
@@ -19,10 +19,10 @@ confluence = Confluence(
     username=confluence_token
 )
 
-azure_devops = AzureDevOps(
-    url=azure_devops_url,
-    personal_access_token=azure_devops_token
-)
+# azure_devops = AzureDevOps(
+#     url=azure_devops_url,
+#     personal_access_token=azure_devops_token
+# )
 
 def export_import_pages(parent_id):
     child_pages = confluence.get_children_of_page(parent_id)
@@ -37,7 +37,7 @@ def export_page(child_page):
 def import_page(file_name):
     with open(f"{file_name}.md", "r") as md_file:
         md_content = md_file.read()
-    azure_devops.create_wiki_page(project_name, file_name, md_content)
+    # azure_devops.create_wiki_page(project_name, file_name, md_content)
     os.remove(f"{file_name}.md")
 
 root_page = confluence.get_root_page(space_key)
